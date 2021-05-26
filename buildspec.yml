@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - apt-get update -y
+      - apt-get -y install libappindicator1
+      - dpkg -i google-chrome-stable_current_amd64.deb
+      - add-apt-repository ppa:ubuntu-mozilla-security/ppa -y
+      - apt install firefox -y
+      - add-apt-repository ppa:cybermax-dexter/sdl2-backport
+      - npm install
+      - npm install -g protractor
+      - npm install -g cucumber
+      - webdriver-manager update
+      - aws ec2 stop-instances --instance-ids i-0485f67b594476a29
+  
+
+  build:
+    commands:
+      - protractor e2e/cucumberConf.js
+      
+  post_build:
+    commands:
+      - aws s3 sync reports s3://jelpit-conjuntos-web-test-automation-reports/
+      - aws ec2 start-instances --instance-ids i-0485f67b594476a29
+      - aws ec2 wait instance-status-ok --instance-ids i-0485f67b594476a29
+
