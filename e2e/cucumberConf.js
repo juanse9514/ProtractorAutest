@@ -48,7 +48,7 @@ exports.config = {
               version: '10.12.6'
           }
         }
-    }
+    },
 
     // {
     //   "build" : "Develop v1.05",
@@ -108,26 +108,11 @@ exports.config = {
     //   }
     // },
     // {
-    //   "build" : "Develop v1.05",
-    //   "name" : "W10-firefox",
-    //   "platform" : "Windows 10",
-    //   "browserName" : "Firefox",
-    //   "version" : "78.0",
-    //   metadata: {
-    //     browser: {
-    //         name: 'Firefox',
-    //         version: '58'
-    //     },
-    //     device: 'MacBook Pro 5',
-    //     platform: {
-    //         name: 'Windows 10',
-    //         version: '10.12.6'
-    //     }
-    //   }
+    //   'browserName': 'firefox'
     // },
     
   ],
-  maxSessions: 1,
+  maxSessions: 2,
   // Spec patterns are relative to this directory.
   //maxSessions: 5,
   specs: [
