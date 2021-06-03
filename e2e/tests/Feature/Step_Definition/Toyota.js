@@ -4,9 +4,8 @@ const expect = require('chai').expect;
 const toyotaHybrid = require('./toyota/toyotaHybridView')
 const sleep = 5000;
 
-
 Given('open web page {string}',{timeout: 40 * 1000}, async function (WebPage) {
-    
+
     browser.ignoreSynchronization = true; 
 
     await browser.driver.get(WebPage);
@@ -20,8 +19,6 @@ When('click in the carousel button {string}',{timeout: 20 * 1000}, async (num) =
 
     await utils.click(buttom)
 
-
-    
 });
 
 
