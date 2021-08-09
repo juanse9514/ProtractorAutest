@@ -122,7 +122,7 @@ exports.config = {
   cucumberOpts: {
     require: 'tests/Feature/Step_Definition/*.js',
     strict: true,                  // <boolean> fail if there are any undefined or pending steps
-    tags: '@Toyota',
+    tags: '@Mivacuna',
     format: ['json:./reports/Jelpit.json'],
     profile: false,
     'no-source': true
